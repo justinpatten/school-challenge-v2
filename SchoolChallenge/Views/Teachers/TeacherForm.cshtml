@@ -1,0 +1,24 @@
+@model SchoolChallenge.ViewModels.TeacherFormViewModel
+@{
+    ViewData["Title"] = "TeacherForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Teacher Information</h2>
+@using (Html.BeginForm("Save", "Teachers"))
+{
+    @Html.ValidationSummary()
+    <div class="form-group">
+        @Html.LabelFor(m => m.Teacher.FirstName)
+        @Html.TextBoxFor(m => m.Teacher.FirstName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Teacher.FirstName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Teacher.LastName)
+        @Html.TextBoxFor(m => m.Teacher.LastName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Teacher.LastName)
+    </div>
+    @Html.HiddenFor(m => m.Teacher.Id)
+    @Html.HiddenFor(m => m.Teacher.NumberOfStudents)
+    <button type="submit" class="btn btn-primary">Save</button>
+}

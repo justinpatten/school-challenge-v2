@@ -1,0 +1,45 @@
+@model System.Collections.Generic.IEnumerable<SchoolChallenge.Models.Student>
+
+@{
+    ViewBag.Title = "Students";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Students</h2>
+<p>
+    @Html.ActionLink("Add Student", "Add", "Students", null, new { @class = "btn btn-primary" })
+</p>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Student Id</th>
+                        <th>Student Number</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Has Scholarship?</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var student in Model)
+                    {
+                        <tr>
+                            <td>@student.Id</td>
+                            <td>@student.StudentNumber</td>
+                            <td>@student.FirstName</td>
+                            <td>@student.LastName</td>
+                            <td>@student.HasScholarship</td>
+                            <td>@Html.ActionLink("Edit", "Edit", "Students", new { id = student.Id }, null)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Import CSV", "Import", "Students", null, new { @class = "btn btn-primary" })
+</div>

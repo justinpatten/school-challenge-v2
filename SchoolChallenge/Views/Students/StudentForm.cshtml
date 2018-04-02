@@ -1,0 +1,33 @@
+@model SchoolChallenge.ViewModels.StudentFormViewModel
+@{
+    ViewData["Title"] = "StudentForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Student Information</h2>
+@using (Html.BeginForm("Save", "Students"))
+{
+    @Html.ValidationSummary()
+    <div class="form-group">
+        @Html.LabelFor(m => m.Student.StudentNumber)
+        @Html.TextBoxFor(m => m.Student.StudentNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Student.StudentNumber)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Student.FirstName)
+        @Html.TextBoxFor(m => m.Student.FirstName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Student.FirstName)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Student.LastName)
+        @Html.TextBoxFor(m => m.Student.LastName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Student.LastName)
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(m => m.Student.HasScholarship) Has Scholarship?
+        </label>
+    </div>
+    @Html.HiddenFor(m => m.Student.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+}

@@ -1,0 +1,20 @@
+﻿@using System
+@using System.Globalization
+@using Microsoft.AspNetCore.Mvc.Rendering
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - SchoolChallenge</title>
+    <link rel="stylesheet" href="~/css/bootstrap-solar.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    @Html.Partial("_NavBar")
+    <div>
+        @RenderBody()
+    </div>
+    <footer>&copy; @DateTime.Now.Year - SchoolChallenge</footer>
+</body>
+</html>
