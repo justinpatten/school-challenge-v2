@@ -18,6 +18,18 @@ A web application project, all code files, as well as any database create script
 - Custom styling - using some libraries, e.g. Bootstrap, is allowed, but please write some of your own as well
 - Unit tests for C# code
 
+## Implementation Requirements ##
+- Convert existing database calls to utilize Entity Framework 
+  - Connection string should be stored in the configuration file
+  - Entity Framework context should be available via Dependency Injection in applicable MVC Controllers
+- Teachers View 
+  - Margins should be added to the left/right of the screen to ensure that content does not run to the edge
+  - Insert/Edit teacher should allow the end user to enter the number of students that the teacher has
+  - User should be able to upload a file to import a list of teachers. Sample file is provided
+- Unit Tests 
+  - Create a unit test to validate that the CSV files are parsed correctly
+
+
 ## Guide ##
 Here are a couple user stories to help guide the development of the solution. 
 
